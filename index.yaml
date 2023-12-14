@@ -2,6 +2,32 @@ apiVersion: v1
 entries:
   cryptpad:
   - apiVersion: v2
+    created: "2023-12-14T10:32:51.335457036Z"
+    dependencies:
+    - name: common
+      repository: https://charts.bitnami.com/bitnami
+      version: 2.9.1
+    description: CryptPad is a collaboration office suite that is end-to-end-encrypted
+      and open-source.
+    digest: e3db30666a92d24a20686bebbc1ae65876a32666e6f1bf43c1bc54a6bc17dad6
+    home: https://cryptpad.org
+    icon: https://cryptpad.org/images/CryptPad_logo_text.svg
+    keywords:
+    - cryptpad
+    - open office
+    - storage
+    - end2end
+    maintainers:
+    - email: guilherme.sautner@xwiki.com
+      name: Guilherme Sautner
+    - email: arsene.fougerouse@xwiki.com
+      name: Arsène Fougerouse
+    name: cryptpad
+    type: application
+    urls:
+    - https://github.com/gsautner/cryptpad-helm/releases/download/cryptpad-helm-0.0.17-Beta.15/cryptpad-0.0.17-Beta.15.tgz
+    version: 0.0.17-Beta.15
+  - apiVersion: v2
     created: "2023-12-14T10:20:41.155417556Z"
     dependencies:
     - name: common
@@ -573,4 +599,4 @@ entries:
     urls:
     - https://github.com/cryptpad/helm/releases/download/cryptpad-helm-0.0.6/cryptpad-0.0.6.tgz
     version: 0.0.6
-generated: "2023-12-14T10:20:41.155620314Z"
+generated: "2023-12-14T10:32:51.335659424Z"
