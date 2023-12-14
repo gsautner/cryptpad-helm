@@ -11,11 +11,6 @@ on:
       - '!**.md'
       - '!**.md.gotmpl'
 
-#permissions:
-#  contents: write
-#  packages: write
-permissions: write-all
-
 jobs:
 
   validate:
@@ -59,6 +54,7 @@ jobs:
     # see: https://docs.github.com/en/actions/security-guides/automatic-token-authentication#modifying-the-permissions-for-the-github_token
     permissions:
       contents: write
+      packages: write
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
