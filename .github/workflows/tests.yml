@@ -24,7 +24,7 @@ jobs:
 
       - name: Add repos
         run: |
-         helm plugin install https://github.com/helm-unittest/helm-unittest --version 0.3.4
+         helm plugin install https://github.com/helm-unittest/helm-unittest.git --version 1.0.4
 
       - name: Set up Python
         uses: actions/setup-python@v4.7.0

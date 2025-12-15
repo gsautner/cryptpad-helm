@@ -40,7 +40,7 @@ jobs:
       - name: Tests
         if: ${{ steps.changed.outputs.result == 'ok' }}
         run: |
-          helm plugin install https://github.com/helm-unittest/helm-unittest --version 0.3.4
+          helm plugin install https://github.com/helm-unittest/helm-unittest.git --version 1.0.4
           for FILE in charts/*; do
             helm dependency update $FILE
             helm unittest $FILE
@@ -72,7 +72,7 @@ jobs:
 
       - name: Add repos
         run: |
-          helm plugin install https://github.com/helm-unittest/helm-unittest --version 0.3.4
+          helm plugin install https://github.com/helm-unittest/helm-unittest.git --version 1.0.4
 
       - name: Prepare GPG key
         run: |
