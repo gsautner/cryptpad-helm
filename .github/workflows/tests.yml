@@ -22,10 +22,6 @@ jobs:
       - name: Install Helm
         uses: azure/setup-helm@v3
 
-      - name: Add repos
-        run: |
-         helm plugin install https://github.com/helm-unittest/helm-unittest.git --version 1.0.4
-
       - name: Set up Python
         uses: actions/setup-python@v4.7.0
         with:
@@ -45,10 +41,7 @@ jobs:
       - name: Run chart-testing lint
         run: ct lint --validate-maintainers=false --target-branch ${{ github.event.repository.default_branch }}
 
-
       - name: Run unit tests
-        run: |
-          for FILE in charts/*; do
-            helm dependency update $FILE
-            helm unittest $FILE
-          done
+        uses: helm-unittest/helm-unittest@v3
+        with:
+          charts: 'charts/cryptpad'
