@@ -25,7 +25,7 @@ jobs:
 
       - name: Add repos
         run: |
-          helm plugin install https://github.com/helm-unittest/helm-unittest.git --version 1.0.4 --verify=false
+          helm plugin install https://github.com/helm-unittest/helm-unittest.git --version 1.0.3 --verify=false
 
       - id: changed
         name: Changed
