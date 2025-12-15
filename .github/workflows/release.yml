@@ -23,6 +23,10 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Add repos
+        run: |
+          helm plugin install https://github.com/helm-unittest/helm-unittest.git --version 1.0.4 --verify=false
+
       - id: changed
         name: Changed
         run: |
@@ -39,9 +43,11 @@ jobs:
 
       - name: Tests
         if: ${{ steps.changed.outputs.result == 'ok' }}
-        uses: helm-unittest/helm-unittest@v3
-        with:
-          charts: 'charts/cryptpad'
+        run: |
+          for FILE in charts/*; do
+            helm dependency update $FILE
+            helm unittest $FILE
+          done
 
   release:
     needs: validate
