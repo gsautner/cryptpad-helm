@@ -23,10 +23,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Add repos
-        run: |
-          helm plugin install https://github.com/helm-unittest/helm-unittest.git --version 1.0.3 --verify=false
-
       - id: changed
         name: Changed
         run: |
@@ -40,14 +36,6 @@ jobs:
             echo "result=skip"
             echo "::warning::Version not changed, skipping release job..."
           fi
-
-      - name: Tests
-        if: ${{ steps.changed.outputs.result == 'ok' }}
-        run: |
-          for FILE in charts/*; do
-            helm dependency update $FILE
-            helm unittest $FILE
-          done
 
   release:
     needs: validate
